@@ -3,10 +3,11 @@ import { Contact } from '../contact';
 import { ContactService } from '../contact.service';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-contacts',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   providers: [ContactService],
   templateUrl: './contacts.component.html',
   styleUrl: './contacts.component.css'
