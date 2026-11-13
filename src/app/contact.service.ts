@@ -23,5 +23,13 @@ export class ContactService {
       })
     )
   }
+
+  add(contact: Contact) {
+    return this.http.post(`${this.baseUrl}/add`, {data: contact}).pipe(
+      map((res: any) => {
+        return res['data'];
+      })
+    )
+  }
   
 }
