@@ -17,6 +17,7 @@ export class AddcontactsComponent implements OnInit {
 
   contact: Contact = { firstName:'', lastName:'', emailAddress:'', phoneNumber:'', dob:'', imageName:'' };
 
+  selectedFile: File | null = null;
   error = '';
   success = '';
 
@@ -53,6 +54,10 @@ export class AddcontactsComponent implements OnInit {
       }
     )
 
+  }
+
+  onFileSelected(event: Event): void {
+    
   }
 
 }

@@ -40,6 +40,12 @@
                 required maxlength="50" #dob="ngModel" />
          </div>
 
+         <!-- Upload Image -->
+         <div class="form-group">
+            <label>Upload Image</label>
+            <input type="file" name="imageName" class="form-control" (change)="onFileSelected($event)" />
+         </div>
+
          <!-- Buttons -->
          <div class="form-group">
             <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Add Contact</button>

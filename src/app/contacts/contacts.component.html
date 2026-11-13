@@ -9,7 +9,11 @@
             <div class="col-2 contact-field">{{ contact.lastName }}</div>
             <div class="col-2 contact-field">{{ contact.emailAddress }}</div>
             <div class="col-2 contact-field">{{ contact.phoneNumber }}</div>
-            <div class="col-2 contact-field">{{ contact.dob }}</div>            
+            <div class="col-2 contact-field">{{ contact.dob }}</div>  
+            <div class="col-2">
+                <img class="contact-image" src="http://localhost/contactapi2026am/uploads/{{contact.imageName}}" 
+                    alt="{{contact.imageName}}" />
+            </div>          
         </div> 
     }
     
