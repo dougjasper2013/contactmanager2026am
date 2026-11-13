@@ -3,12 +3,12 @@ import { Contact } from '../contact';
 import { ContactService } from '../contact.service';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-addcontacts',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   providers: [ContactService],
   templateUrl: './addcontacts.component.html',
   styleUrl: './addcontacts.component.css'
