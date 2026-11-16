@@ -13,6 +13,11 @@
             <div class="col-2">
                 <img class="contact-image" src="http://localhost/contactapi2026am/uploads/{{contact.imageName}}" 
                     alt="{{contact.imageName}}" />
+            </div>
+            <div class="col-2 d-flex gap-2">
+                <button class="btn btn-danger btn-sm" (click)="deleteContact(contact.contactID ?? 0)">
+                    Delete
+                </button>
             </div>          
         </div> 
     }

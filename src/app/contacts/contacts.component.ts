@@ -46,4 +46,8 @@ export class ContactsComponent implements OnInit {
     );
   }
 
+  deleteContact(contactID: number): void {
+    
+  }
+
 }
