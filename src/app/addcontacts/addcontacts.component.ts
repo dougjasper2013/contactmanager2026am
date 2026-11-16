@@ -45,6 +45,13 @@ export class AddcontactsComponent implements OnInit {
 
         console.log("in contactService.add subscribe");
 
+        if (this.selectedFile && this.contact.imageName != 'placeholder_100.jpg')
+        {
+          this.uploadFile();
+        }
+
+        f.reset();
+
         this.router.navigate(['/contacts']);
 
       },
@@ -57,7 +64,31 @@ export class AddcontactsComponent implements OnInit {
   }
 
   onFileSelected(event: Event): void {
-    
+    console.log("in onFileSelected");
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0)
+    {
+        console.log("in if block in onFileSelected");
+        this.selectedFile = input.files[0];
+        this.contact.imageName = this.selectedFile.name;
+    }
+    console.log("after if block in onFileSelected");
+  }
+
+  uploadFile(): void {
+    console.log("before if block in uploadFile");
+    if (!this.selectedFile) {
+      console.log("in if block in uploadFile");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('image', this.selectedFile);
+
+    this.http.post('http://localhost/contactapi2026am/upload', formData).subscribe(
+      response => console.log('File uploaded successfuly:', response),
+      error => console.error('File upload failed:', error)
+    );
   }
 
 }
