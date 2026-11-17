@@ -36,5 +36,13 @@ export class ContactService {
     const params = new HttpParams().set('contactID', contactID.toString());
     return this.http.get(`${this.baseUrl}/delete`, {params: params});
   }
+
+  update(contact: Contact) {
+    return this.http.put(`${this.baseUrl}/update`, {data: contact});
+  }
+
+  get(contactID: number) {
+    return this.http.get<Contact>(`http://localhost/contactapi2026am/view.php?contactID=${contactID}`);
+  }
   
 }
