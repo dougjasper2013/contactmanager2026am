@@ -52,6 +52,7 @@ export class UpdatecontactsComponent implements OnInit {
 
   updateContact(form: NgForm)
   {
+    console.log("inside updateContact at top")
     //Prepare form data
     const formData = new FormData();
     formData.append('contactID', this.contactID.toString());
@@ -61,21 +62,43 @@ export class UpdatecontactsComponent implements OnInit {
     formData.append('phoneNumber', this.contact.phoneNumber || '');
     formData.append('dob', this.contact.dob || '');
 
-    // Send the request to update.php
+    console.log(this.contact.phoneNumber);
+
+
+    // // Send the request to update.php
+    // this.http.post('http://localhost/contactapi2026am/update.php', formData).subscribe({
+    //   next: () => {
+    //     this.success = 'Contact updated successfully.';
+    //     this.router.navigate(['/contacts']);
+    //   },
+    //   error: (err: HttpErrorResponse) => {
+    //     if (err.status == 409) {
+    //       this.error = err.error?.error || 'Duplicate entry detected.';
+    //     }
+    //     else {
+    //       this.error = 'Update failed.';
+    //     }
+    //   }
+    // });
     this.http.post('http://localhost/contactapi2026am/update.php', formData).subscribe({
-      next: () => {
+    next: (response) => {
+        console.log('UPDATE SUCCESS:', response);
         this.success = 'Contact updated successfully.';
         this.router.navigate(['/contacts']);
-      },
-      error: (err: HttpErrorResponse) => {
+    },
+    error: (err: HttpErrorResponse) => {
+        console.log('UPDATE ERROR:', err);
+        console.log('HTTP STATUS:', err.status);
+        console.log('ERROR BODY:', err.error);
+
         if (err.status == 409) {
-          this.error = err.error?.error || 'Duplicate entry detected.';
+            this.error = err.error?.error || 'Duplicate entry detected.';
         }
         else {
-          this.error = 'Update failed.';
+            this.error = 'Update failed.';
         }
-      }
-    });
+    }
+  });
   }
   
 
