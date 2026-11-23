@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 
-
 @Component({
   selector: 'app-register',
   imports: [CommonModule, FormsModule],
@@ -32,8 +31,16 @@ export class RegisterComponent {
       return;
     }
 
-    
-  } 
-
+    this.auth.register({userName: this.userName, password: this.password, emailAddress: this.emailAddress})
+      .subscribe({
+        next: res => {
+          this.success = 'Registration successful! You can now login.';
+          this.router.navigate(['/contacts']); // temporary but to be changed to the login once created
+        },
+        error: err => {
+          this.error = err.error?.message || 'registration failed.';
+        }
+      });
+  }
 
 }

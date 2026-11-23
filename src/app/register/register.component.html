@@ -1,1 +1,23 @@
-<p>register works!</p>
+<div class="form-container">
+
+    <h2>Register</h2>
+
+    <form #regForm="ngForm" (ngSubmit) = "register(regForm)">
+
+        <label>Username:</label>
+        <input type="text" name="userName" [(ngModel)]="userName" required />
+
+        <label>Password:</label>
+        <input type="password" name="password" [(ngModel)]="password" required />
+
+        <label>Confirm Password:</label>
+        <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" required />
+
+        <label>Email:</label>
+        <input type="email" name="emailAddress" [(ngModel)]="emailAddress" required />
+
+        <button type="submit" [disabled]="!regForm.valid || password != confirmPassword">Register</button>
+
+    </form>
+
+</div>
