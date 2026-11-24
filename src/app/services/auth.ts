@@ -16,6 +16,17 @@ export class Auth {
 
   register(user: any) {
     return this.http.post<any>(`${this.baseUrl}/register.php`, user);
-  }  
+  }
+  
+  login(user: any) {
+    return this.http.post<any>(`${this.baseUrl}/login.php`, user);
+  }
+
+  logout() {
+    return this.http.get(`${this.baseUrl}/logout.php`).subscribe(() => {
+      // more code to come
+      this.router.navigate(['/login']);
+    });
+  }
   
 }
