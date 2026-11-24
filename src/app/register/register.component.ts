@@ -35,7 +35,8 @@ export class RegisterComponent {
       .subscribe({
         next: res => {
           this.success = 'Registration successful! You can now login.';
-          this.router.navigate(['/contacts']); // temporary but to be changed to the login once created
+          // this.router.navigate(['/contacts']); // temporary but to be changed to the login once created
+          this.router.navigate(['/login']); // redirect to login form
         },
         error: err => {
           this.error = err.error?.message || 'registration failed.';
