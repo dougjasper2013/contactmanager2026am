@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="form-container">
+
+    <h2>Login</h2>
+    <div id="links" class="mt-4 text-center">
+        <button class="btn btn-outline-primary" routerLink="/register">Register</button>
+    </div>
+
+    <form (ngSubmit) = "login()">
+
+        <label>Username:</label>
+        <input type="text" name="userName" [(ngModel)]="userName" required />
+
+        <label>Password:</label>
+        <input type="password" name="password" [(ngModel)]="password" required />       
+
+        <button type="submit">Login</button>
+
+    </form>
+
+</div>
+
