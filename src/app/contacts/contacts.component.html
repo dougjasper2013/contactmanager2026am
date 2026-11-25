@@ -1,6 +1,7 @@
 <div id="thelist" class="contact-list-container">
     <div class="toolbar">
         <h2>Contact List</h2>
+        <button (click)="authService.logout()" class="btn btn-sm btn-danger">Logout</button>
     </div>
 
     @for (contact of contacts; track contact.contactID) {

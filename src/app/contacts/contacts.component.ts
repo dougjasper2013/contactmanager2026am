@@ -4,6 +4,7 @@ import { ContactService } from '../contact.service';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
+import { Auth } from '../services/auth';
 
 @Component({
   selector: 'app-contacts',
@@ -24,7 +25,7 @@ export class ContactsComponent implements OnInit {
   error = '';
   success = '';
 
-  constructor(private contactService: ContactService, private http: HttpClient) {
+  constructor(private contactService: ContactService, private http: HttpClient, public authService: Auth) {
     // no other statements required
   }
 
